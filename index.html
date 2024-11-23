@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://use.fontawesome.com/78aaf746cb.js"></script>
+    <script>
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+</head>
+
+<body class="dark:bg-gray-700">
+
+    <div class="bg-red-700 fixed bottom-8 cursor-pointer right-8 px-2 rounded-full" onclick="gototop()" id="upbutton">
+        <span>&UpArrow;</span>
+    </div>
+
+    <div class="fixed right-2 top-2 text-slate-300">
+        <button id="theme-toggle" type="button" class="text-gray-500 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm ">
+                <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+            </button>
+    </div>
+    <div class="bg-blue-900 flex py-2">
+        <p class="text-white ml-5 font-bold"><i class="fa fa-globe text-yellow-400 fa-2x"></i> Mon-Sat.8.00-12.00.Sunday Closed</p>
+        <p class="text-white flex pl-[900px] font-bold"><i class="fa fa-phone text-yellow-400 fa-2x"></i> Tel No (+001)123-456-789</p>
+    </div>
+    <nav class="shadow   sm:block">
+        <div class="flex justify-between py-2 px-12 dark:text-white">
+            <h1 class="font-bold text-2xl text-blue-900 dark:text-white">ACURA</h1>
+            <ul>
+                <li class="inline p-2 hover:bg-blue-300"><a href="#">HOME</a></li>
+                <li class="inline p-2 hover:bg-blue-300"><a href="#">ABOUT US</a></li>
+                <li class="inline p-2 hover:bg-blue-300"><a href="#">SERVICES</a></li>
+                <li class="inline p-2 hover:bg-blue-300"><a href="#">PORTFOLIO</a></li>
+                <li class="inline p-2 hover:bg-blue-300"><a href="#">PRICING</a></li>
+                <li class="inline p-2 hover:bg-blue-300"><a href="#">CONTAC</a></li>
+            </ul>
+        </div>
+    </nav>
+    <nav class="shadow bg-green-300 sm:hidden dark:text-white">
+        <div class="py-2 px-12">
+            <div class="flex justify-between ">
+                <h1 class="font-bold text-xl dark:text-white">ACURA</h1>
+                <a href="#" onclick="MovBar()"><i class="fa fa-bars"></i></a>
+            </div>
+            <ul id="Mobnav">
+                <li class=" p-2 hover:bg-blue-300"><a href="#">HOME</a></li>
+                <li class=" p-2 hover:bg-blue-300"><a href="#">ABOUT US</a></li>
+                <li class=" p-2 hover:bg-blue-300"><a href="#">SERVICES</a></li>
+                <li class=" p-2 hover:bg-blue-300"><a href="#">PORTFOLIO</a></li>
+                <li class=" p-2 hover:bg-blue-300"><a href="#">PRICING</a></li>
+                <li class=" p-2 hover:bg-blue-300"><a href="#">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+    <img src="images/creative.png" alt="">
+    <div class="flex bg-blue-900">
+        <div class="pl-[200px] py-4">
+            <p class="text-white font-bold py-2 text-2xl">BEST BUSINESS CONSULTING</p>
+            <P class="text-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit temporibus quam praesentium deleniti sapiente, consequatur, aut <br>esse provident quod ipsam, atque quis aspernatur. Aut fugit doloribus, tempora non amet repellat.</P>
+        </div>
+        <div class="pl-9 mt-[50px]">
+            <button class="bg-yellow-400 hover:bg-blue-700  font-bold py-2 px-4 border border-blue-700 rounded">Read More</button>
+        </div>
+    </div>
+    <div class="mt-9 dark:text-white">
+        <p class="text-blue-900 font-bold text-center text-4xl dark:text-white">OUR SERVICES</p>
+        <p class="px-16 mt-4 text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque soluta totam eum natus? Totam numquam illo officia! Reiciendis hic soluta odit impedit numquam quod perferendis vel! Mollitia tempore possimus velit.</p>
+        <div class="pt-9 py-9 ">
+            <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1  gap-10 mx-auto mt-5">
+                <div class="grid grid-cols-2  ">
+                    <div class="mt-2 ">
+                        <p class="text-center pl-16 ml-16"><i class="fa fa-bell text-yellow-400  p-3 fa-3x bg-blue-900 rounded-full"></i></p>
+                    </div>
+                    <div class="text-left ">
+                        <p class="font-bold text-blue-900 text-2xl dark:text-white">Consulting</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elited Impedit iste eaque aliquid. </p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2  ">
+                    <div class="mt-2 ">
+                        <p class="text-center pl-16 ml-16"><i class="fa fa-camera text-yellow-400  p-3 fa-3x bg-blue-900 rounded-full"></i></p>
+                    </div>
+                    <div class="text-left ">
+                        <p class="font-bold text-blue-900 text-2xl dark:text-white">Consulting</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elited. Impedit iste eaque aliquid. </p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2  ">
+                    <div class="mt-2 ">
+                        <p class="text-center pl-16 ml-16"><i class="fa fa-comment   text-yellow-400  p-3 fa-3x bg-blue-900 rounded-full"></i></p>
+                    </div>
+                    <div class="text-left ">
+                        <p class="font-bold text-blue-900 text-2xl dark:text-white">Consulting</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elited. Impedit iste eaque aliquid. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1  gap-10 mx-auto mt-5 ">
+                <div class="grid grid-cols-2  ">
+                    <div class="mt-2 ">
+                        <p class="text-center pl-16 ml-16"><i class="fa fa-instagram text-yellow-400  p-3 fa-3x bg-blue-900 rounded-full"></i></p>
+                    </div>
+                    <div class="text-left ">
+                        <p class="font-bold text-blue-900 text-2xl dark:text-white">Consulting</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elited Impedit iste eaque aliquid. </p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2  ">
+                    <div class="mt-2 ">
+                        <p class="text-center pl-16 ml-16"><i class="fa fa-headphones text-yellow-400  p-3 fa-3x bg-blue-900 rounded-full"></i></p>
+                    </div>
+                    <div class="text-left ">
+                        <p class="font-bold text-blue-900 text-2xl dark:text-white">Consulting</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elited. Impedit iste eaque aliquid. </p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2  ">
+                    <div class="mt-2 ">
+                        <p class="text-center pl-16 ml-16"><i class="fa fa-heart text-yellow-400  p-3 fa-3x bg-blue-900 rounded-full"></i></p>
+                    </div>
+                    <div class="text-left ">
+                        <p class="font-bold text-blue-900 text-2xl dark:text-white">Consulting</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elited. Impedit iste eaque aliquid. </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="bg-gray-400 pb-20">
+        <p class="font-bold text-blue-900 text-3xl text-center pt-9">OUR ORGANIZATION</p>
+        <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod recusandae velit placeat minima <br>xquibusdam eius debitis vel. Qui cupiditate </p>
+        <div class="grid grid-cols-2 pt-5">
+            <div class="pl-24">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos totam ipsum natus optio ipsa deserunt non quisquam perferendis maxime temporibus fugiat illo, tempore, delecte and numquam maiores consequatur odio laudantium etc ipsum natus
+                    optio ipsa deserunt non quisquam perferendis </p>
+                <ul class="pl-12 pt-6">
+                    <p>1. Lorem ipsum, dolor sit amet consectetur</p>
+                    <p>2. Lorem ipsum, dolor sit amet </p>
+                    <p>3. Lorem ipsum, dolor sit amet consectetur asset</p>
+                    <p>4. Lorem ipsum, dolor sit </p>
+                    <button class="bg-yellow-500 hover:bg-blue-7 font-bold py-2 px-4 mt-4 rounded">
+                        Learn More
+                      </button>
+                </ul>
+            </div>
+            <div>
+                <p class="h-28 w-[65%] "><img src="images/oky.png" alt=""></p>
+            </div>
+        </div>
+    </div>
+    <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1  gap-10 mx-auto mt-16 pb-16">
+        <div class="mt-5 pl-16 dark:text-white">
+            <p class="font-bold text-4xl text-blue-900 dark:text-white">Programes</p>
+            <p class="mt-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum sequi, ut laborum veniam et reprehenderit, qui optio culpa voluptates sunt aliquam quaerat numquam dignissimos quae laboriosam voluptatibus iure! Facilis</p>
+            <p class="mt-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur magnam voluptatibus dolorum accusantium </p>
+        </div>
+        <div class="mt-5 pl-16 dark:text-white">
+            <p class="font-bold text-4xl text-blue-900 pb-5 dark:text-white">Latest News</p>
+            <p class="border p-3"> > According Heading Text item # 1</p>
+            <p class="border p-3"> > According Heading Text item # 2</p>
+            <p class="border p-3"> > According Heading Text item # 3</p>
+            <p class="border p-3"> > According Heading Text item # 4</p>
+        </div>
+        <div class="mt-5 pl-16">
+            <p class="font-bold text-4xl text-blue-900 pb-5 dark:text-white">Testimonials</p>
+            <p class="p-2  bg-slate-200 mr-24">Lorem ipsum dolor sit amet, consectetur and adipisicing elit. Sit ipsum, deleniti nulla, minus neque velit suscipit natus aliquid placeat cum nobis dolorem dolorum eius et amet. Mollitia aliquid deleniti culpa!</p>
+            <div class="mt-5 flex">
+                <div class="rounded-full h-20 w-20">
+                    <img class="rounded-full" src="images/bb.jpg " alt="">
+                </div>
+                <div class="pl-5">
+                    <p class="font-bold text-blue-900 dark:text-white ">Marc Cooper</p>
+                    <p class="dark:text-white">Technical director</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="grid lg:grid-cols-4  md:grid-cols-2 sm:grid-cols-1 gap-10 mx-auto bg-blue-900 pb-24 pt-9 px-12">
+        <div class="mt-5 ">
+            <p class="text-yellow-300 font-bold text-3xl pb-4">Our Contact</p>
+            <p class="text-white">Bootstrap company Inc <br>Jc main Road,Near Silnile tower </p>
+            <p class="text-white mt-5">(123) 456-799-1255-12584 <br>email@domainnarre.com</p>
+        </div>
+        <div class="mt-5 ">
+            <p class="text-yellow-300 font-bold text-3xl pb-4">Quick Links</p>
+            <div class="text-white">
+                <p>latest Events</p>
+                <p>Terms and Condition</p>
+                <p>Privacy policy</p>
+                <p>Carrer</p>
+                <p>Contact us</p>
+            </div>
+        </div>
+        <div class="mt-5">
+            <p class="text-yellow-300 font-bold text-3xl pb-4">Latest posts</p>
+            <div class="text-white">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p> eligendi nulla placeat expedita nature and accusantium repudiandae aliquam.</p>
+                <p> aspernatur voluptatum vitae. Nisi libero assumenda perferendis suscipit blanditis</p>
+            </div>
+        </div>
+        <div class="mt-5 ">
+            <p class="text-yellow-300 font-bold text-3xl pb-4">Recent News</p>
+            <div class="text-white">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p> eligendi nulla odit iure nature and accusantium repudiandae aliquam.</p>
+                <p> aspernatur voluptatum vitae. Nisi libero assumenda perferendis suscipit blanditis</p>
+            </div>
+        </div>
+    </div>
+    <div class="bg-blue-900 pb-9 flex">
+        <p class="text-white pl-9">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi consequuntur pariatur nam vel Blanditiis.</p>
+        <div class="pl-60 flex">
+            <p class="border border-sky-500 rounded-lg  px-3 py-1 ml-3"><i class="fa fa-facebook"></i></p>
+            <p class="border border-sky-500  rounded-lg px-3 py-1 ml-3"><i class="fa fa-instagram"></i></p>
+            <p class="border border-sky-500  rounded-lg px-3 py-1 ml-3"><i class="fa fa-headphones"></i></p>
+            <p class="border border-sky-500  rounded-lg  px-3 py-1 ml-3"><i class="fa fa-user"></i></p>
+            <p class="border border-sky-500 rounded-lg  px-3 py-1 ml-3"><i class="fa fa-phone"></i></p>
+        </div>
+    </div>
+
+    <script>
+        var nav = document.getElementById('Mobnav');
+        nav.style.display = 'none';
+
+        function MovBar() {
+            if (nav.style.display == 'none') {
+                nav.style.display = 'block';
+            } else {
+                nav.style.display = 'none';
+            }
+        }
+    </script>
+    <script>
+        var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        // Change the icons inside the button based on previous settings
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        var themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+
+            // toggle icons inside button
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            // if set via local storage previously
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+
+                // if NOT set via local storage previously
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+
+        });
+    </script>
+
+    <script>
+        var upbutton = document.getElementById('upbutton');
+        upbutton.style.display = 'none';
+        window.onscroll = function() {
+            scrollFunction();
+        }
+
+        function scrollFunction() {
+            if (window.scrollY > 200) {
+                upbutton.style.display = 'block';
+            } else {
+                upbutton.style.display = 'none';
+            }
+        }
+
+        function gototop() {
+            //document.documentElement.scrollTop = 0;
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+
+</html>
